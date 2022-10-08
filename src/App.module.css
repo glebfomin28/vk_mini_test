@@ -1,0 +1,25 @@
+/* Магазин готовый */
+
+@font-face {
+    font-family: "VK Sans Display";
+    src: url("./Font/VK_Sans_Display_Medium.woff2") format("woff2"),
+    url("./Font/VK_Sans_Display_Medium.woff") format("woff");
+    font-weight: 500;
+    font-display: fallback;
+}
+
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.ready_store {
+    font-family: 'VK Sans Display';
+    /*position: relative;*/
+    /*width: 375px;*/
+    height: 734px;
+
+    background-color: #FFFFFF;
+    /*border-radius: 14px;*/
+}

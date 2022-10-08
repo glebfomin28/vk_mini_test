@@ -1,0 +1,70 @@
+.item_frame {
+    cursor: pointer;
+    padding: 5px;
+}
+.item_frame:active {
+    background-color: #f0f0f1;
+    border-radius: 20px;
+}
+
+.img_box {
+    /*margin: 4px 5.67px 8px 6.33px;*/
+    box-sizing: border-box;
+    width: 95.5px;
+    height: 95.5px;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    border-radius: 20px;
+}
+
+.name_item {
+    margin: 0;
+    padding: 0;
+    /*width: 94px;*/
+    height: 18px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    text-align: center;
+    /* identical to box height, or 129% */
+    letter-spacing: -0.154px;
+}
+.red_text {
+    color: #af0000;
+}
+
+.price_coin {
+    display: flex;
+    margin: 4px 0 0 12px;
+    padding: 0;
+    /*width: 94px;*/
+    height: 18px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #000000;
+}
+.price_coin img {
+    width: 20px;
+}
+.price_coin_text {
+    padding: 0;
+    margin-left: 8px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: -0.078px;
+    color: #818C99;
+}
+
+@media screen and (max-width: 400px) {
+    .img_box {
+        /*margin: 4px 5.67px 8px 6.33px;*/
+        box-sizing: border-box;
+        width: 104px;
+        height: 104px;
+        border: 1px solid rgba(0, 0, 0, 0.09);
+        border-radius: 20px;
+    }
+}

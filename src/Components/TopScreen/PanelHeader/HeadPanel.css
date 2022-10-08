@@ -1,0 +1,77 @@
+.panel_header {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.status_bar {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+
+    width: 375px;
+    height: 44px;
+}
+
+.panel_header_content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+
+    width: 375px;
+    height: 52px;
+}
+.bank {
+
+    margin-top: 8px;
+    padding: 10px 15px 10px;
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 15px;
+    color: #F2F2F2;
+}
+
+.bank img {
+    margin-top: -2px;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.sum_coins {
+    width: 33px;
+    height: 20px;
+    /*font-family: 'SF Pro Display';*/
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: right;
+    color: #F2F2F2;
+}
+
+.text_center {
+    display: flex;
+    height: 25px;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px;
+    color: black;
+}
+
+

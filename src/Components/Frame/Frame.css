@@ -1,0 +1,36 @@
+/*.frame {*/
+/*    !*background-color: black;*!*/
+/*    !*margin-left: -20px;*!*/
+/*    !*position: absolute;*!*/
+/*    !*top: 335px;*!*/
+/*    left: 0;*/
+/*    width: 360px;*/
+/*    height: 357px;*/
+/*}*/
+
+.frame_head {
+    position: relative;
+    /*background-color: #948787;*/
+    width: 375px;
+    height: 40px;
+
+}
+
+
+.frame_text_head {
+    padding: 5px 37px 5px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    color: #818C99;
+}
+
+.frame_body {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 8px;
+}
