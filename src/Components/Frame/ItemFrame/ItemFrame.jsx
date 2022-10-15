@@ -6,10 +6,10 @@ import {purchaseItem} from "../../../Redux/buyItemSlice_reducers";
 import {Div} from "@vkontakte/vkui";
 import coin from "../img/coin.svg";
 
-function ItemFrame(elItem) {
+function ItemFrame(props) {
     const dispatch = useDispatch();
-    let bankCoins = useSelector(state => state.bankCoins.bankCoinNum)
-    let priceItem = useSelector(state => state.item.itemList[elItem.id - 1].price)
+    const bankCoins = useSelector(state => state.bankCoins.bankCoinNum)
+    const priceItem = useSelector(state => state.item.itemList[props.id - 1].price)
 
     let flag = true;
     let style_name = {color: "#000000"}
@@ -26,30 +26,30 @@ function ItemFrame(elItem) {
     }
 
     // Всплывающие сообщение
-    if (bankCoins <= 45000 && bankCoins >= 44000) elItem.openAction();
+    if (bankCoins <= 45000 && bankCoins >= 44000) props.openAction();
 
 
     //Сброс приложения
     if (bankCoins <= 0) {
-        elItem.modalRootFunc()
+        props.modalRootFunc()
     }
 
     const clickItem = () => {
         if (priceItem >= 1200) {
-            elItem.limitExceeded()
+            props.limitExceeded()
         }
 
         // Пока цена не выше 1200
         if (flag) {
             dispatch(coinReduction(priceItem));
-            dispatch(purchaseItem(elItem.id - 1));
+            dispatch(purchaseItem(props.id - 1));
         }
     }
 
     return (
         <Div onClick={clickItem} className="item_frame" style={body_gray} >
-            <img className="img_box" src={elItem.imgItem}/>
-            <Div className="name_item" style={style_name}>{elItem.name}</Div>
+            <img className="img_box" src={props.imgItem}/>
+            <Div className="name_item" style={style_name}>{props.name}</Div>
             <Div className="price_coin" style={style_name}>
                 <img src={coin}/>
                 <Div className="price_coin_text">{priceItem}</Div>

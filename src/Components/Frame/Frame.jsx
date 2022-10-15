@@ -11,6 +11,7 @@ function Frame(props) {
     let ItemFrameElements = defState.itemList.map( elItem => {
         return(
             <ItemFrame
+                key={elItem.id}
                 id={elItem.id}
                 name={elItem.name}
                 price={elItem.price}
@@ -22,10 +23,15 @@ function Frame(props) {
 
     return (
         <Group >
-            <Div className="frame_text_head">Одежда</Div>
-            <Div className="frame_body">
-                {ItemFrameElements}
-            </Div>
+            <Div className="frame_text_head">{props.selected}</Div>
+            {props.selected === "Одежда"?
+                <Div className="frame_body">
+                    {ItemFrameElements}
+                </Div>
+                :
+                null
+            }
+
         </Group>
     )
 }

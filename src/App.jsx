@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import TopScreen from "./Components/TopScreen/TopScreen";
 import Frame from "./Components/Frame/Frame";
 import '@vkontakte/vkui/dist/fonts.css';
@@ -8,8 +8,7 @@ import {
     TabbarItem, useAdaptivity, usePlatform, View, ViewWidth, VKCOM, PanelHeader,
 } from "@vkontakte/vkui";
 import {Icon28HomeOutline, Icon28TagOutline,Icon28PawOutline } from "@vkontakte/icons";
-import HeadPanel from "./Components/TopScreen/PanelHeader/HeadPanel";
-import DesktopMenu from "./Components/DesktopMenu/DesktopMenu";
+import {Content} from "./Components/Content";
 
 const App = () => {
     const { viewWidth } = useAdaptivity();
@@ -18,10 +17,8 @@ const App = () => {
     const [activeStory, setActiveStory] = React.useState("Shop");
     const onStoryChange = (e) => {
         setActiveStory(e.currentTarget.dataset.story);
-        setSimple(e.currentTarget.dataset.story)
     }
     const isDesktop = viewWidth >= ViewWidth.SMALL_TABLET;
-    const [simple, setSimple] = useState("Shop");
     const [popout, setPopout] = React.useState(null);
     const [modal, setModal] = React.useState(null);
     const [snackbar, setSnackbar] = React.useState(null);
@@ -115,7 +112,7 @@ const App = () => {
                                     before={
                                         <TabbarItem
                                             style={{marginRight: "10px"}}
-                                            selected={activeStory && simple  ===  "Home"}
+                                            selected={activeStory ===  "Home"}
                                             data-story="Home"
                                         >
                                             <Icon28HomeOutline />
@@ -141,7 +138,7 @@ const App = () => {
                                     before={
                                         <TabbarItem
                                             style={{marginRight: "10px"}}
-                                            selected={activeStory && simple  ===  "Paw"}
+                                            selected={activeStory ===  "Paw"}
                                             data-story="Paw"
                                         >
                                             <Icon28PawOutline />
@@ -167,7 +164,7 @@ const App = () => {
                                     before={
                                         <TabbarItem
                                             style={{marginRight: "10px"}}
-                                            selected={activeStory && simple  ===  "Shop"}
+                                            selected={activeStory ===  "Shop"}
                                             data-story="Shop"
                                         >
                                             <Icon28TagOutline />
@@ -194,7 +191,7 @@ const App = () => {
                                 <Tabbar >
                                     <TabbarItem
                                         onClick={onStoryChange}
-                                        selected={activeStory && simple  ===  "Home"}
+                                        selected={activeStory ===  "Home"}
                                         data-story="Home"
                                     >
                                         <Icon28HomeOutline/>
@@ -202,7 +199,7 @@ const App = () => {
 
                                     <TabbarItem
                                         onClick={onStoryChange}
-                                        selected={activeStory && simple  === "Paw"}
+                                        selected={activeStory  === "Paw"}
                                         data-story="Paw"
                                     >
                                         <Icon28PawOutline/>
@@ -210,7 +207,7 @@ const App = () => {
 
                                     <TabbarItem
                                         onClick={onStoryChange}
-                                        selected={activeStory && simple  === "Shop"}
+                                        selected={activeStory === "Shop"}
                                         data-story="Shop"
                                     >
                                         <Icon28TagOutline />
@@ -242,16 +239,9 @@ const App = () => {
                         </View>
 
                         <View id="Shop" activePanel="Shop">
-                            <Panel id="Shop" onmousedown="return false" onselectstart="return false">
 
-                                {/*Компонент шапка. С балансом монеток*/}
-                                <HeadPanel/>
-
-                                {/*Компонент блок с картинкой и кнопками.*/}
-                                <TopScreen />
-
-                                {/*Компонент блок с карточками.*/}
-                                <Frame
+                            <Panel id="Shop">
+                                <Content
                                     limitExceeded={limitExceeded}
                                     modalRootFunc={modalRootFunc}
                                     openAction={openAction}

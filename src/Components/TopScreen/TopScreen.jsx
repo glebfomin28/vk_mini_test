@@ -1,13 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./TopScreen.css";
-import Button1 from "./Buttons/Buttons1";
-import Button2 from "./Buttons/Buttons2";
-import Button3 from "./Buttons/Buttons3";
-import Button4 from "./Buttons/Buttons4";
-import {Div, Group} from "@vkontakte/vkui";
+import "@vkontakte/vkui/dist/vkui.css";
+import {Div, Group, SubnavigationBar, SubnavigationButton} from "@vkontakte/vkui";
 import mineScreen from "./main_screen_img.svg";
 
-function TopScreen() {
+function TopScreen(props) {
+    const onChange = (e) => {
+        props.onChange(e.currentTarget.attributes[2].nodeValue)
+    }
+
+    const buttList = ['Одежда','Еда', 'Бустеры', 'Валюта'].map( (name, index) => {
+        return(
+            <SubnavigationButton
+                key={index}
+                selected={props.selected ===  name}
+                onClick={onChange}
+            >
+                {name}
+            </SubnavigationButton>
+        )})
 
     return (
         <Group style={{position:"relative", marginTop: "18px"}} >
@@ -18,10 +29,9 @@ function TopScreen() {
                 position: "relative",
                 display: "flex"}}
             >
-                <Button1/>
-                <Button2/>
-                <Button3/>
-                <Button4/>
+                <SubnavigationBar style={{margin: "-20px -20px -10px"}}>
+                    {buttList}
+                </SubnavigationBar>
             </Div>
         </Group>
     );
